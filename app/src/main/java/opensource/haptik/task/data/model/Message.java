@@ -23,6 +23,17 @@ public class Message implements Parcelable {
     @SerializedName("message-time")
     String messageTime;
 
+    @SerializedName("is_favourite")
+    Boolean isFavourite;
+
+    public Boolean getFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(Boolean favourite) {
+        isFavourite = favourite;
+    }
+
     public String getBody() {
         return body;
     }

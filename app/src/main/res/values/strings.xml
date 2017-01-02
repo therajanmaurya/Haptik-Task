@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Haptik Chat</string>
+    <string name="error_loading_chats">Error Loading Chats</string>
 </resources>

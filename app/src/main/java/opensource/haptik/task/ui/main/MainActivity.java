@@ -2,14 +2,10 @@ package opensource.haptik.task.ui.main;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -17,10 +13,15 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import opensource.haptik.task.R;
+import opensource.haptik.task.data.model.Chat;
 import opensource.haptik.task.data.model.Message;
-import opensource.haptik.task.ui.base.BaseActivity;
-import opensource.haptik.task.ui.ChatFragment;
 import opensource.haptik.task.ui.ChatDetailsFragment;
+import opensource.haptik.task.ui.ChatFragment;
+import opensource.haptik.task.ui.adapter.HaptikAdapter;
+import opensource.haptik.task.ui.base.BaseActivity;
+import opensource.haptik.task.ui.interfaces.UpdateChat;
+import opensource.haptik.task.ui.interfaces.UpdateChatDetails;
+import opensource.haptik.task.utils.Constants;
 
 public class MainActivity extends BaseActivity
         implements MainContracts.View {
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity
     ViewPager vpChat;
 
     @BindView(R.id.tl_chat)
-    TabLayout tlChat;
+    TabLayout mTabLayout;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -48,7 +49,8 @@ public class MainActivity extends BaseActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         setupViewPager(vpChat);
-        tlChat.setupWithViewPager(vpChat);
+        mTabLayout.setupWithViewPager(vpChat);
+
     }
 
     @Override
@@ -59,12 +61,15 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void showChats(List<Message> messages) {
+        ((UpdateChat)getSupportFragmentManager()
+                .findFragmentByTag(getFragmentTag(0))).updateChats(messages);
         Toast.makeText(this, messages.get(0).getUserName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void ShowChatDetails() {
-
+    public void ShowChatDetails(Chat chat) {
+        ((UpdateChatDetails)getSupportFragmentManager()
+                .findFragmentByTag(getFragmentTag(1))).updateChatDetails(chat);
     }
 
     @Override
@@ -74,7 +79,11 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void showError() {
+        Toast.makeText(this, getString(R.string.error_loading_chats), Toast.LENGTH_SHORT).show();
+    }
 
+    private String getFragmentTag(int position) {
+        return "android:switcher:" + R.id.vp_chat + ":" + position;
     }
 
     @Override
@@ -84,38 +93,9 @@ public class MainActivity extends BaseActivity
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        Adapter adapter = new Adapter(getSupportFragmentManager());
-        adapter.addFragment(new ChatFragment(), "Chat");
-        adapter.addFragment(new ChatDetailsFragment(), "Details");
+        HaptikAdapter adapter = new HaptikAdapter(getSupportFragmentManager());
+        adapter.addFragment(ChatFragment.newInstance(), Constants.CHAT);
+        adapter.addFragment(new ChatDetailsFragment(), Constants.CHAT_DETAILS);
         viewPager.setAdapter(adapter);
-    }
-
-    static class Adapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragments = new ArrayList<>();
-        private final List<String> mFragmentTitles = new ArrayList<>();
-
-        public Adapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragments.add(fragment);
-            mFragmentTitles.add(title);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitles.get(position);
-        }
     }
 }
