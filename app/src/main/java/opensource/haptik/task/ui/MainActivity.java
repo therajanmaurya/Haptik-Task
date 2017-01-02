@@ -1,7 +1,9 @@
-package opensource.haptik.task;
+package opensource.haptik.task.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import opensource.haptik.task.R;
 
 public class MainActivity extends AppCompatActivity {
 

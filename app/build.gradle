@@ -46,6 +46,7 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
     compile "com.squareup.picasso:picasso:$PICASSO_VERSION"
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 
     // Rx Dependencies
     compile 'io.reactivex:rxandroid:1.2.1'
