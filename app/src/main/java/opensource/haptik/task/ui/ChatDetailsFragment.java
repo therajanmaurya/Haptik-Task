@@ -1,4 +1,4 @@
-package opensource.haptik.task.ui.chatdetails;
+package opensource.haptik.task.ui;
 
 import android.support.v4.app.Fragment;
 
