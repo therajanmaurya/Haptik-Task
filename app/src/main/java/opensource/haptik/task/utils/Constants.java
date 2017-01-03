@@ -11,4 +11,6 @@ public class Constants {
     public static final String CHAT_DETAILS = "Details";
 
     public static final String MESSAGES = "messages";
+
+    public static final String ME = "John";
 }
