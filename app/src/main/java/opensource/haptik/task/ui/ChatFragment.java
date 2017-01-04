@@ -89,6 +89,7 @@ public class ChatFragment extends Fragment implements UpdateChat,
         rvChat.setLayoutManager(layoutManager);
         rvChat.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), this));
         rvChat.setHasFixedSize(true);
+        mChatAdapter.setContext(getActivity());
         rvChat.setAdapter(mChatAdapter);
 
         return rootView;

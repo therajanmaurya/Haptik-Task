@@ -1,9 +1,12 @@
 package opensource.haptik.task.ui.adapter;
 
+import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ import opensource.haptik.task.utils.Utils;
 public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
 
     private List<Message> messages;
+    private Context context;
 
     private final int VIEW_ME = 1;
     private final int VIEW_OTHER = 0;
@@ -66,6 +70,9 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
         holder.tvBody.setText(message.getBody());
         holder.tvUser.setText(message.getName());
         holder.tvTime.setText(Utils.getStringOfDate(message.getMessageTime()));
+        holder.rl_selectedOverlay.setBackgroundColor(isSelected(position) ?
+                ContextCompat.getColor(context,R.color.gray) :
+                ContextCompat.getColor(context, android.R.color.transparent));
     }
 
     @Override
@@ -83,6 +90,10 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tv_body)
@@ -93,6 +104,9 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
 
         @BindView(R.id.tv_user)
         TextView tvUser;
+
+        @BindView(R.id.rl_view)
+        RelativeLayout rl_selectedOverlay;
 
         public ViewHolder(View v) {
             super(v);
