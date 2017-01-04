@@ -60,7 +60,11 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mTextView.setText(messages.get(position).getName());
+        Message message = messages.get(position);
+
+        holder.tvBody.setText(message.getBody());
+        holder.tvUser.setText(message.getName());
+        holder.tvTime.setText("4 AM");
     }
 
     @Override
@@ -80,8 +84,14 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tv_title)
-        TextView mTextView;
+        @BindView(R.id.tv_body)
+        TextView tvBody;
+
+        @BindView(R.id.tv_time)
+        TextView tvTime;
+
+        @BindView(R.id.tv_user)
+        TextView tvUser;
 
         public ViewHolder(View v) {
             super(v);

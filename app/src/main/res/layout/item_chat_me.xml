@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<me.himanshusoni.chatmessageview.ChatMessageView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cmv_backgroundColor="#88BABABA"
-    app:cmv_backgroundColorPressed="#FFBABABA"
-    app:cmv_cornerRadius="3dp">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+    <me.himanshusoni.chatmessageview.ChatMessageView
+        android:id="@+id/chatMessageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello" />
+        app:cmv_arrowGravity="start"
+        app:cmv_arrowPosition="left"
+        android:padding="8dp"
+        app:cmv_backgroundColor="@color/colorAccent"
+        app:cmv_backgroundColorPressed="#ff00bcd4"
+        app:cmv_contentPadding="0dp"
+        app:cmv_cornerRadius="8dp"
+        app:cmv_showArrow="true">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
 
-</me.himanshusoni.chatmessageview.ChatMessageView>
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/message"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="8dp"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </me.himanshusoni.chatmessageview.ChatMessageView>
+</LinearLayout>
