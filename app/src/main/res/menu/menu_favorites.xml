@@ -6,6 +6,7 @@
     <item
         android:id="@+id/action_favorites"
         android:title="@string/favorites"
+        android:icon="@drawable/ic_star_rate_white_18dp"
         appcompat:showAsAction="always"
     />
 </menu>
