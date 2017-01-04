@@ -57,11 +57,6 @@ public class MainActivity extends BaseActivity
         setupViewPager(vpChat);
         mTabLayout.setupWithViewPager(vpChat);
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         mMainPresenter.loadChats();
     }
 
