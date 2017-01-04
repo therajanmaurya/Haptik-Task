@@ -26,10 +26,9 @@
 
             <opensource.haptik.task.utils.CircularImageView
                 android:id="@+id/circularImageView"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:layout_weight=".5"
-                android:background="@color/black"
                 android:src="@drawable/bg_messages"/>
 
             <TextView
@@ -38,6 +37,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="0.5"
+                android:textColor="@color/black"
                 android:layout_marginLeft="10dp"
                 android:text="@string/message"
             />
@@ -55,12 +55,14 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
+                android:textColor="@color/black"
                 android:text="@string/chats"/>
             <TextView
                 android:id="@+id/tv_favorites"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
+                android:textColor="@color/black"
                 android:text="@string/favorites"/>
 
         </LinearLayout>

@@ -49,6 +49,7 @@ public class ChatDetailsFragment extends Fragment implements UpdateChatDetails {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        chatDetailAdapter.setContext(getActivity());
         rvChat.setLayoutManager(layoutManager);
         rvChat.setHasFixedSize(true);
         rvChat.setAdapter(chatDetailAdapter);

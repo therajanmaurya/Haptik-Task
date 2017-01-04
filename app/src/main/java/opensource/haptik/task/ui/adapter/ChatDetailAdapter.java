@@ -1,10 +1,13 @@
 package opensource.haptik.task.ui.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +31,8 @@ public class ChatDetailAdapter extends SelectableAdapter<ChatDetailAdapter.ViewH
 
     private List<Message> mMessages;
     private List<String> users;
-    Map<String, List<Message>> chatMap;
+    private Map<String, List<Message>> chatMap;
+    private Context context;
 
     @Inject
     public ChatDetailAdapter() {
@@ -47,9 +51,13 @@ public class ChatDetailAdapter extends SelectableAdapter<ChatDetailAdapter.ViewH
 
     @Override
     public void onBindViewHolder(ChatDetailAdapter.ViewHolder holder, int position) {
+        String imageUrl = chatMap.get(users.get(position)).get(0).getImageUrl();
         holder.tvName.setText(users.get(position));
         holder.tvChats.setText(String.valueOf(chatMap.get(users.get(position)).size()));
         holder.tv_favorites.setText(String.valueOf(Utils.getFavorites(chatMap.get(users.get(position)))));
+        if (imageUrl.length() != 0) {
+            Picasso.with(context).load(imageUrl).into(holder.circularImageView);
+        }
     }
 
     @Override
@@ -67,6 +75,10 @@ public class ChatDetailAdapter extends SelectableAdapter<ChatDetailAdapter.ViewH
         chatMap = Utils.filterMessages(mMessages);
         users = new ArrayList<>(chatMap.keySet());
         notifyDataSetChanged();
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
