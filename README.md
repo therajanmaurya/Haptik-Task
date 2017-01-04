@@ -13,7 +13,7 @@ This is the application which have the following features:
   <tr>
     <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/loading.png"></td>
     <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/chats.png"></td>
-    <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/chats1.png"></td>
+    <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/chats1png.png"></td>
     <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/UserDetails.png"></td>
     <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/favourite.png"></td>
     <td><img src="https://raw.githubusercontent.com/therajanmaurya/Haptik-Task/master/screenshots/favouriteUser.png"></td>
