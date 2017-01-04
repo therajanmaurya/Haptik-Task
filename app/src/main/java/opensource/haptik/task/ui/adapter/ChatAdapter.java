@@ -17,6 +17,7 @@ import opensource.haptik.task.R;
 import opensource.haptik.task.data.model.Message;
 import opensource.haptik.task.ui.base.SelectableAdapter;
 import opensource.haptik.task.utils.Constants;
+import opensource.haptik.task.utils.Utils;
 
 /**
  * Created by Rajan Maurya on 02/01/17.
@@ -64,7 +65,7 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
 
         holder.tvBody.setText(message.getBody());
         holder.tvUser.setText(message.getName());
-        holder.tvTime.setText("4 AM");
+        holder.tvTime.setText(Utils.getStringOfDate(message.getMessageTime()));
     }
 
     @Override
