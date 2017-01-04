@@ -27,7 +27,7 @@ public class Message implements Parcelable {
     String messageTime;
 
     @SerializedName("favourite")
-    Boolean favourite;
+    Boolean favourite = false;
 
     public String getName() {
         return name;

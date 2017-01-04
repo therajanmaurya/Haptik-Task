@@ -10,6 +10,9 @@ import java.util.Locale;
 import java.util.Map;
 
 import opensource.haptik.task.data.model.Message;
+import rx.Observable;
+import rx.functions.Action1;
+import rx.functions.Func1;
 
 /**
  * Created by Rajan Maurya on 02/01/17.
@@ -38,5 +41,23 @@ public class Utils {
             userMessagesMap.get(msg.getUserName()).add(msg);
         }
         return userMessagesMap;
+    }
+
+    public static Integer getFavorites(List<Message> messages) {
+        final List<Integer> favorites = new ArrayList<>();
+        Observable.from(messages)
+                .filter(new Func1<Message, Boolean>() {
+                    @Override
+                    public Boolean call(Message message) {
+                        return message.getFavourite();
+                    }
+                })
+                .subscribe(new Action1<Message>() {
+                    @Override
+                    public void call(Message message) {
+                        favorites.add(1);
+                    }
+                });
+        return favorites.size();
     }
 }

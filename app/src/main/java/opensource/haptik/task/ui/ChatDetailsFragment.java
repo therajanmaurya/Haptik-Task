@@ -34,6 +34,7 @@ public class ChatDetailsFragment extends Fragment implements UpdateChatDetails {
 
     View rootView;
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,3 +62,4 @@ public class ChatDetailsFragment extends Fragment implements UpdateChatDetails {
         chatDetailAdapter.setChat(chat.getMessages());
     }
 }
+

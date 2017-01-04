@@ -61,7 +61,7 @@ public class MainPresenter extends BasePresenter<MainContracts.View>
                     public void onNext(Chat chat) {
                         getMvpView().showProgressbar(false);
                         getMvpView().showChats(chat.getMessages());
-                        getMvpView().ShowChatDetails(chat);
+                        getMvpView().showChatDetails(chat);
                     }
                 })
         );

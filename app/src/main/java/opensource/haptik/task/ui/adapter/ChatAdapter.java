@@ -78,7 +78,7 @@ public class ChatAdapter extends SelectableAdapter<ChatAdapter.ViewHolder> {
         return messages.size();
     }
 
-    public void setTask(List<Message> messages) {
+    public void setChats(List<Message> messages) {
         this.messages = messages;
         notifyDataSetChanged();
     }

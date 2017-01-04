@@ -16,7 +16,7 @@ public interface MainContracts {
 
         void showChats(List<Message> messages);
 
-        void ShowChatDetails(Chat chat);
+        void showChatDetails(Chat chat);
 
         void showProgressbar(Boolean show);
 

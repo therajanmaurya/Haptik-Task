@@ -49,7 +49,7 @@ public class ChatDetailAdapter extends SelectableAdapter<ChatDetailAdapter.ViewH
     public void onBindViewHolder(ChatDetailAdapter.ViewHolder holder, int position) {
         holder.tvName.setText(users.get(position));
         holder.tvChats.setText(String.valueOf(chatMap.get(users.get(position)).size()));
-        holder.tv_favorites.setText("Fav");
+        holder.tv_favorites.setText(String.valueOf(Utils.getFavorites(chatMap.get(users.get(position)))));
     }
 
     @Override

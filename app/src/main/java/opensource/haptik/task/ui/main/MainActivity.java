@@ -19,12 +19,13 @@ import opensource.haptik.task.ui.ChatDetailsFragment;
 import opensource.haptik.task.ui.ChatFragment;
 import opensource.haptik.task.ui.adapter.HaptikAdapter;
 import opensource.haptik.task.ui.base.BaseActivity;
+import opensource.haptik.task.ui.interfaces.Update;
 import opensource.haptik.task.ui.interfaces.UpdateChat;
 import opensource.haptik.task.ui.interfaces.UpdateChatDetails;
 import opensource.haptik.task.utils.Constants;
 
 public class MainActivity extends BaseActivity
-        implements MainContracts.View {
+        implements MainContracts.View, Update {
 
     @BindView(R.id.vp_chat)
     ViewPager vpChat;
@@ -67,7 +68,7 @@ public class MainActivity extends BaseActivity
     }
 
     @Override
-    public void ShowChatDetails(Chat chat) {
+    public void showChatDetails(Chat chat) {
         ((UpdateChatDetails)getSupportFragmentManager()
                 .findFragmentByTag(getFragmentTag(1))).updateChatDetails(chat);
     }
@@ -97,5 +98,12 @@ public class MainActivity extends BaseActivity
         adapter.addFragment(ChatFragment.newInstance(), Constants.CHAT);
         adapter.addFragment(new ChatDetailsFragment(), Constants.CHAT_DETAILS);
         viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void update(List<Message> messages) {
+        Chat chat = new Chat();
+        chat.setMessages(messages);
+        showChatDetails(chat);
     }
 }
