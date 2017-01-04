@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:padding="5dp"
+    android:layout_marginRight="100dp"
+    android:orientation="horizontal">
 
-    <me.himanshusoni.chatmessageview.ChatMessageView
-        android:id="@+id/chatMessageView"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/rlv2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/triangle"
+        android:gravity="right"
+        android:rotation="180" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cmv_arrowGravity="start"
-        app:cmv_arrowPosition="left"
-        android:padding="8dp"
-        app:cmv_backgroundColor="@color/colorAccent"
-        app:cmv_backgroundColorPressed="#ff00bcd4"
-        app:cmv_contentPadding="0dp"
-        app:cmv_cornerRadius="8dp"
-        app:cmv_showArrow="true">
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        android:padding="2dp"
+        android:layout_marginLeft="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,15 +30,14 @@
             android:orientation="vertical"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:paddingTop="8dp">
+            android:paddingTop="4dp">
 
             <TextView
                 android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user"
-                android:textColor="@color/white"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/colorAccent"
                 android:textSize="12sp"/>
 
             <TextView
@@ -42,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/message"
                 android:textSize="16sp"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
             <TextView
@@ -52,9 +56,9 @@
                 android:layout_gravity="end"
                 android:layout_marginBottom="8dp"
                 android:text="@string/time"
-                android:textColor="@color/white"
+                android:textColor="@color/gray"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textSize="12sp"/>
         </LinearLayout>
-    </me.himanshusoni.chatmessageview.ChatMessageView>
-</LinearLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -4,4 +4,6 @@
     <string name="time">Time</string>
     <string name="message">Message</string>
     <string name="user">User</string>
+    <string name="chats">Chats</string>
+    <string name="favorites">Favorites</string>
 </resources>

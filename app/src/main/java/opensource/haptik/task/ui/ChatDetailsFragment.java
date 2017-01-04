@@ -20,7 +20,7 @@ import opensource.haptik.task.ui.interfaces.UpdateChatDetails;
 public class ChatDetailsFragment extends Fragment implements UpdateChatDetails {
 
 
-    @BindView(R.id.data)
+    @BindView(R.id.textView)
     TextView mTextView;
 
     View rootView;
