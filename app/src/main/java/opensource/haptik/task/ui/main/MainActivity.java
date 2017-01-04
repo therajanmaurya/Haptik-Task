@@ -64,7 +64,6 @@ public class MainActivity extends BaseActivity
     public void showChats(List<Message> messages) {
         ((UpdateChat)getSupportFragmentManager()
                 .findFragmentByTag(getFragmentTag(0))).updateChats(messages);
-        Toast.makeText(this, messages.get(0).getUserName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
