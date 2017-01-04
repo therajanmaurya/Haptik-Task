@@ -61,9 +61,6 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
     annotationProcessor daggerCompiler
 
-    //ChatView Dependencies
-    compile 'me.himanshusoni.chatmessageview:chat-message-view:1.0.3'
-
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

@@ -17,9 +17,9 @@ import rx.Observable;
  */
 public interface HapTikService {
 
-    String ENDPOINT = "http://haptik.mobi/android/";
+    String ENDPOINT = "https://gist.githubusercontent.com/therajanmaurya/5ce67f9836b3d4b12a2d20a35b6ceaf8/raw/b09c75624ba37e8e7ab9e1300db79eb863c05b1c/";
 
-    @GET("test_data")
+    @GET("Haptik-Task-API")
     Observable<Chat> getChats();
 
     /******** Helper class that sets up a new services *******/
