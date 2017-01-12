@@ -1,4 +1,4 @@
-# Haptik-Task
+# Material Chat
 
 This is the application which have the following features:
 
